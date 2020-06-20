@@ -1,0 +1,32 @@
+body {
+    padding: 5rem;
+  }
+  
+  .panel,
+  .panel-body {
+    box-shadow: none;
+    border: 1px groove #666;
+    margin-bottom: 5px;
+  }
+  .panel-group{
+      margin-top:10px;
+  }
+  .panel-group .panel-heading {
+    padding: 0;
+  }
+  
+  .panel-group .panel-heading a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .panel-group .panel-heading a:after {
+    content: '-';
+    float: right;
+  }
+  
+  .panel-group .panel-heading a.collapsed:after {
+    content: '+';
+  }
