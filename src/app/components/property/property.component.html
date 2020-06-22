@@ -1,5 +1,5 @@
 <!-- <h3>Add your Property Details</h3> -->
-
+<form>
 <div class="panel-group" id="accordionGroupOpen" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -11,9 +11,81 @@
     </div>
     <div id="collapseOpenOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <h5>Start by telling us your property's name, contact details, and address.</h5>
+        <fieldset  class="border p-2"> 
+          <div class="row">
+            <div class="col-md-12">
+              <legend>What's the name of your property?</legend>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-12 col-sm-6">
+              <div style="position: relative;">
+                <input type="text" id="property_name" name="property_name" class="form-control"/>
+              </div>
+              <div id="property_name_length_warning"></div>
+              <span class="join_property_name_text">Guests will see this name when they search for a place to stay.</span>
+            </div>
+          </div>
+          <div class="row">
+            <div id="starts_column" class="form-group col-xs-12 col-sm-4">
+              <label>Star rating</label>
+              <select class="col-md-12 form-control" id="stars" name="stars">
+                <option value="0" selected="selected">N/A</option>
+                <option value="1">1 ✯</option>
+                <option value="2">2 ✯✯</option>
+                <option value="3">3 ✯✯✯</option>
+                <option value="4">4 ✯✯✯✯</option>
+                <option value="5">5 ✯✯✯✯✯</option>
+             </select>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset  class="border p-2">
+          <div class="row">
+            <div class="col-md-12"><legend>Where's your property located?</legend></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group">
+              <div class="row">
+                <div class="col-lg-12 form-group">
+                  <label for="address_line_1">Street address</label>
+                  <input type="text" id="address_line_1" name="address_line_1" class="form-control" placeholder="e.g. 123 Easy Street"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 form-group">
+                  <label for="address_line_2">Address line 2</label>
+                  <input type="text" id="address_line_2" name="address_line_2" class="form-control" placeholder="Unit number, suite, floor, building, etc. "/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 form-group">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" class="form-control" placeholder="e.g. Kolkata"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 form-group">
+                  <label for="state">State</label>
+                  <input type="text" id="state" name="state" class="form-control" placeholder="State"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 form-group">
+                  <label for="country">Country</label>
+                  <input type="text" id="country" name="country" class="form-control" placeholder="Country"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 form-group">
+                  <label for="zipcode">Zipcode</label>
+                  <input type="text" id="zipcode" name="zipcode" class="form-control" placeholder="zipcode"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
       </div>
     </div>
   </div>
@@ -27,9 +99,100 @@
     </div>
     <div id="collapseOpenTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <h5>Tell us about your first room. After entering all the necessary info, you can fill in the details of your other rooms.</h5>
+        <div id="main_content_section" class="col-md-9">
+          <!-- Display list of rooms here when rooms are already added -->
+          <!-- <div id="room_list" *ngif=""></div> -->
+          <div id="property-layout-empty-state" class="seg-cr-empty-state">
+            <div class="col-xs-12 property-layout-empty-state__body">
+              <div style="width: 160px; margin: auto; margin-top: 10px; margin-bottom: 30px;">
+                  <img style="width: 100%; height: 100%;" src="https://q.bstatic.com/static/img/join/segmentation/empty-state-createroom@2x.png" alt="">
+              </div>
+              <span>No rooms have been added to your property – start adding rooms to describe bed options, layout, and pricing for guests.</span>
+              <br/>
+              <a href="#create_room" class="btn btn-primary btn-lg">Add room</a>
+              <br>
+              <!-- Display below clicked on Add room button above -->
+              <div id="room_form" method="POST" class="col-lg-12">
+                <fieldset id="main-room-form">
+                  <div id="error_header" class="alert alert-danger hidden"></div>
+                  <legend>
+                      <span id="room_name_label">Please select</span>
+                  </legend>
+                <!-- Room type -->
+                  <div class="row room-type-selection-block">
+                    <div class="form-group col-sm-6 col-xs-12">
+                      <label for="roomtype_id">Room type</label>
+                      <select class="form-control" name="roomtype_id" id="roomtype_id">
+                        <option value="" data-roomtype-label="Room type" data-roomnumber-label="Number of rooms (of this type)">Please select</option>
+                        <option value="10" data-roomtype-label="Room type" data-roomname-label="Room name" data-roomnumber-label="Number of rooms (of this type)">Single</option>
+                        <option value="9" data-roomtype-label="Room type" data-roomname-label="Room name" data-roomnumber-label="Number of rooms (of this type)">Double</option>
+                        <option value="8" data-roomtype-label="Room type" data-roomname-label="Room name" data-roomnumber-label="Number of rooms (of this type)">Twin</option>
+                      </select>
+                      <span class="help-block"></span>
+                    </div>
+                  </div>
+                  <!-- Optional, based upon room type can be displayed -->
+                  <div class="row">
+                    <div id="room_name_div" class="form-group col-sm-6 col-xs-12 hidden">
+                      <label for="room_name_id">Room name</label>
+                      <select class="form-control" name="room_name_id" id="room_name_select"><option value="" class="hidden">Please select</option></select>
+                      <span id="please_select_room_type_msg" class="help-block">
+                        This is the name guests will see on the Booking.com website.
+                      </span>
+                      <div class="warning-block describe-block hidden">
+                        <i class="glyphicon glyphicon-hand-right"></i>
+                        <p class="describe-text">
+                            Please select a room name you haven't used yet. This will make it easier for you to differentiate between rooms when assigning amenities in the next section.
+                        </p>
+                      </div>
+                    </div>          
+                    <div id="custom_room_name_div" class="form-group col-sm-6 col-xs-12 hidden">
+                      <label for="custom_room_name_id">Custom name (optional)</label>
+                      <input type="text" id="custom_room_name" name="custom_room_name" maxlength="80" class="form-control">
+                      <span class="help-block"> Create an optional, custom name for your reference. </span>
+                    </div>
+                  </div>
+                  <!-- Smoking type -->
+                  <div class="row">
+                    <div class="form-group col-sm-6 col-xs-12">
+                      <label class="" for="no_smoking">Smoking policy</label>
+                      <select id="no_smoking" name="no_smoking" class="form-control">
+                        <option value="1">Non-smoking</option>
+                        <option value="0">Smoking</option>
+                        <option value="2">I have both smoking and non-smoking options for this room type</option>
+                      </select>
+                      <span class="help-block"></span>
+                    </div>
+                  </div>          
+                </fieldset>
+                <fieldset>
+                  <div id="error_header" class="alert alert-danger hidden"></div>
+                    <legend>
+                        <span id="room_name_label">How many people you want to allow?</span>
+                    </legend>
+                    <!-- No of guest -->
+                    <div class="row">
+                      <div>
+                        <label class="col-lg-12">How many guests can stay in this room?</label>
+                        <div class="form-group col-sm-12 guests-occupancy ">
+                          <input type="tel" id="num_guests" name="num_guests" class="form-control num_guests_collective form-control-limited ">                        
+                        </div>
+                      </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                  <div id="error_header" class="alert alert-danger hidden"></div>
+                    <legend>
+                        <span id="room_name_label">What is the price </span>
+                    </legend>
+                    <div class="row">
+                    </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -43,75 +206,133 @@
     </div>
     <div id="collapseOpenThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <h5>Tell us about your available facilities, internet, parking, and the languages you speak.</h5>
+        <fieldset  class="border p-2"> 
+          <div class="row">
+            <div class="col-md-12">
+              <legend>Parking</legend>
+            </div>
+          </div>
+          <div class="row">
+            <div id="starts_column" class="form-group col-xs-12 col-sm-4">
+              <label>Is parking available to guests?</label>
+              <select class="col-md-12 form-control" id="parking" name="parking">
+                <option value="0" selected="selected">No</option>
+                <option value="1">Yes, paid</option>
+                <option value="2">Yes, free</option>
+             </select>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset  class="border p-2"> 
+          <div class="row">
+            <div class="col-md-12">
+              <legend>Breakfast</legend>
+            </div>
+          </div>
+          <div class="row">
+            <div id="starts_column" class="form-group col-xs-12 col-sm-4">
+              <label>Is breakfast available to guests?</label>
+              <select class="col-md-12 form-control" id="parking" name="parking">
+                <option value="0" selected="selected">No</option>
+                <option value="1">Yes, it's included in the price</option>
+                <option value="2">Yes, it's optional</option>
+             </select>
+            </div>
+          </div>
+        </fieldset>
+        <!-- <fieldset  class="border p-2"> 
+          <div class="row">
+            <div class="col-md-12">
+              <legend>Languages spoken</legend>
+            </div>
+          </div>
+          <div class="row">
+            <div id="starts_column" class="form-group col-xs-12 col-sm-4">
+              <label>What languages does your staff speak?</label>
+              <select class="col-md-12 form-control" id="parking" name="parking">
+                <option value="0" selected="selected">No</option>
+                <option value="1">Yes, it's included in the price</option>
+                <option value="2">Yes, it's optional</option>
+             </select>
+            </div>
+          </div>
+        </fieldset> -->
+        <fieldset  class="border p-2"> 
+          <div class="row">
+            <div class="col-md-12">
+              <legend>Facilities That Are Popular With Guests</legend>
+            </div>
+          </div>
+          <div class="row">
+            <div id="starts_column" class="form-group col-xs-12 col-sm-12">
+              <label>Guests look for these facilities the most when they’re searching for properties.</label>
+              <!-- Multi select checkbox should be given here -->
+              <ul class="col-sm-6">
+                <li><input type="checkbox" value="Wifi"/></li>
+              </ul>
+              <ul class="col-sm-6">
+                <li>Airport shuttle</li>
+              </ul>
+              
+            </div>
+          </div>
+        </fieldset>
       </div>
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
+    <div class="panel-heading" role="tab" id="headingFive">
       <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionGroupOpen" href="#collapseOpenThree" aria-expanded="false" aria-controls="collapseThree">
-          Amenities
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOpenThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionGroupOpen" href="#collapseOpenThree" aria-expanded="false" aria-controls="collapseThree">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionGroupOpen" href="#collapseOpenFive" aria-expanded="false" aria-controls="collapseFive">
           Photos
         </a>
       </h4>
     </div>
-    <div id="collapseOpenThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+    <div id="collapseOpenFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <h5>Photo gallery</h5>
+        <div class="row" style="margin-bottom: 5px;">
+          <div class="col-lg-12">
+            <img *ngFor='let url of urls'  [src]="url" height="200"> <br/>            
+            <input type='file' (change)="onSelectFile($event)" multiple>
+          </div>
+        </div>
+        <div class="row" *ngIf="urls.length>0">
+          <div class="col-sm-4">
+            <input type="button" class="btn btn-info" value="Add photos"/>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
+    <div class="panel-heading" role="tab" id="headingSix">
       <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionGroupOpen" href="#collapseOpenThree" aria-expanded="false" aria-controls="collapseThree">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionGroupOpen" href="#collapseOpenSix" aria-expanded="false" aria-controls="collapseSix">
           Terms & Policies
         </a>
       </h4>
     </div>
-    <div id="collapseOpenThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+    <div id="collapseOpenSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <h5>Specify some basic policies. Do you allow children or pets? How flexible are you with cancellations?</h5>
       </div>
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
+    <div class="panel-heading" role="tab" id="headingSeven">
       <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionGroupOpen" href="#collapseOpenThree" aria-expanded="false" aria-controls="collapseThree">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionGroupOpen" href="#collapseOpenSeven" aria-expanded="false" aria-controls="collapseSeven">
           Payment
         </a>
       </h4>
     </div>
-    <div id="collapseOpenThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+    <div id="collapseOpenSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-        raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <h5>Specify the payment types you accept, tax details, and other options like additional charges.</h5>
       </div>
     </div>
   </div>
 </div>
-
+</form>
